@@ -96,8 +96,6 @@ script.setScript("""
 # Connections
 cam.video.link(jpeg.input)
 jpeg.bitstream.link(script.inputs['jpeg'])
-# xOutTest = pipeline.createXLinkOut()
-# xOutTest.setStreamName("test")
   
 #DAP file allows the script to be saved as a package that can be flashed to the Camera and run automatically on power up of the OAK-D
 dai.DeviceBootloader.saveDepthaiApplicationPackage(
@@ -109,8 +107,6 @@ dai.DeviceBootloader.saveDepthaiApplicationPackage(
 
 # Connect to device with pipeline
 with dai.Device(pipeline) as device:
-    # new = device.getOutputQueue(name="test", maxSize=1, blocking=False)
-    # cv2.putText(frame, "Preparing {} app...", (150, 250), cv2.FONT_HERSHEY_TRIPLEX, 0.5, (255, 255, 255), 4, cv2.LINE_AA)
     while not device.isClosed():
         cam.setFps(60)
         time.sleep(1)
