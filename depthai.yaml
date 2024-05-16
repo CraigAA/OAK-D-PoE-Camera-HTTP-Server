@@ -1,0 +1,50 @@
+version: '3'
+services:
+  depthai_camera_1:
+    image: localhost/depthai:2.0
+    container_name: oak-d1
+    restart: unless-stopped
+    network_mode: host
+    volumes:
+      #- /volume1/docker/depthai/dev_boot.py:/app/your-main-script.py
+      - /volume1/docker/depthai/POE-http.py:/app/main.py
+    environment:
+      - TZ=Australia/Adelaide
+    #command: ["Name", "Script File", "IP Address", "Target FPS", "Focus Value"]
+    command: ["python", "/app/main.py", "192.168.84.3", "60", "130"]
+
+  depthai_camera_2:
+    image: localhost/depthai:2.0
+    container_name: oak-d2
+    restart: unless-stopped
+    network_mode: host
+    volumes:
+      #- /volume1/docker/depthai/dev_boot.py:/app/your-main-script.py
+      - /volume1/docker/depthai/POE-http.py:/app/main.py
+    environment:
+      - TZ=Australia/Adelaide
+    command: ["python", "/app/main.py", "192.168.84.4", "60", "130"]
+
+  depthai_camera_3:
+    image: localhost/depthai:2.0
+    container_name: oak-d3
+    restart: unless-stopped
+    network_mode: host
+    volumes:
+      #- /volume1/docker/depthai/dev_boot.py:/app/your-main-script.py
+      - /volume1/docker/depthai/POE-http.py:/app/main.py
+    environment:
+      - TZ=Australia/Adelaide
+    command: ["python", "/app/main.py", "192.168.84.5", "60", "130"]
+
+  depthai_camera_4:
+    image: localhost/depthai:2.0
+    container_name: oak-d4
+    restart: unless-stopped
+    network_mode: host
+    volumes:
+      #- /volume1/docker/depthai/dev_boot.py:/app/your-main-script.py
+      - /volume1/docker/depthai/POE-http.py:/app/main.py
+    environment:
+      - TZ=Australia/Adelaide
+    command: ["python", "/app/main.py", "192.168.84.6", "60", "130"]
